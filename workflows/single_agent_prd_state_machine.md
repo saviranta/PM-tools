@@ -50,6 +50,59 @@ And end with either:
 
 ---
 
+## STATE INIT — CONTEXT_GATHERING
+
+**Purpose:** Collect optional strategic context before starting PRD generation.
+
+### Required Action
+
+Before processing the idea, ask the user:
+
+> "Before we begin, do you have either of these optional context files to share?
+>
+> 1. **Company Strategy** — Goals, priorities, target markets, strategic bets
+> 2. **Current Product Description** — Existing products, customer segments, capabilities
+>
+> If you have these, please share them now. If not, just say 'skip' and we'll proceed without strategic context."
+
+### If Context Files Provided
+
+Store the context and use it throughout the PRD process to:
+
+- **Company Strategy** enables:
+  - Assess strategic fit in STATE 2 (Value & Outcomes)
+  - Flag misalignment with company priorities
+  - Connect outcomes to strategic goals
+  - Add "Strategic Fit" section to Executive Snapshot
+
+- **Current Product Description** enables:
+  - Identify overlap with existing products
+  - Assess fit with existing customer segments
+  - Flag cannibalization risks
+  - Identify integration opportunities
+  - Add "Product Portfolio Fit" section to Executive Snapshot
+
+### If Context Files NOT Provided
+
+- Proceed without strategic alignment analysis
+- Omit "Strategic Fit" and "Product Portfolio Fit" sections from PRD
+- Note in Executive Snapshot: "Strategic context not provided — alignment not assessed"
+
+### Allowed Outputs
+- Request for context files
+- Confirmation of what was received
+- Summary of how context will be used
+
+### Forbidden
+- Processing the idea before context question is answered
+- Assuming strategic context exists
+
+### Exit Conditions
+- User provides context file(s), OR
+- User explicitly skips ("skip", "none", "proceed", etc.)
+
+---
+
 ## STATE 0 — IDEA_INGESTION
 
 **Purpose:** Understand the raw idea without improving it.
@@ -136,6 +189,31 @@ The agent must draft initial estimates based on available information, then ask 
    - What would users pay to solve it? (or: what do alternatives cost?)
    - Total € value of the problem across the SOM
    - Confidence level: High / Medium / Low
+
+### Strategic Fit Assessment (If Context Provided)
+
+**Only if company_strategy was provided in STATE INIT:**
+
+| Question | Assessment |
+|----------|------------|
+| Does this align with stated company goals? | Yes / Partial / No |
+| Does this serve priority target markets? | Yes / Partial / No |
+| Does this fit current strategic bets? | Yes / Partial / No |
+| What's the strategic fit score? | Strong / Moderate / Weak / Misaligned |
+
+Flag any misalignment explicitly and ask user if they want to proceed despite misalignment.
+
+**Only if current_product_description was provided in STATE INIT:**
+
+| Question | Assessment |
+|----------|------------|
+| Does this overlap with existing products? | Yes / Partial / No |
+| Does this serve existing customer segments? | Yes / New Segment / No |
+| Is there cannibalization risk? | High / Medium / Low / None |
+| Are there integration opportunities? | Yes (list) / No |
+| What's the portfolio fit? | Complementary / Adjacent / New Territory |
+
+Flag cannibalization risks and ask user how to address them.
 
 ### Forbidden
 - Features
@@ -266,7 +344,7 @@ After user journeys are defined, generate a complexity estimation table using T-
 
 ---
 
-## STATE 6 — EXECUTIVE_SYNTHESIS  
+## STATE 6 — EXECUTIVE_SYNTHESIS
 *(PRD Section 1 — Generated Last)*
 
 ### Allowed Outputs
@@ -275,6 +353,18 @@ After user journeys are defined, generate a complexity estimation table using T-
 - Executive snapshot
 - Honest risk framing
 - Guardrails and non-goals surfaced
+- **Strategic Fit Summary** (if company_strategy was provided):
+  - Strategic alignment score (Strong / Moderate / Weak / Misaligned)
+  - Key alignments with company goals
+  - Any flagged misalignments
+  - Recommendation: Proceed / Proceed with caveats / Reconsider
+- **Product Portfolio Fit Summary** (if current_product_description was provided):
+  - Portfolio fit (Complementary / Adjacent / New Territory)
+  - Overlap with existing products
+  - Cannibalization risk level
+  - Integration opportunities
+- **If no context was provided:**
+  - Note: "Strategic context not provided — company alignment not assessed"
 
 ### Forbidden
 - New ideas
@@ -284,6 +374,7 @@ After user journeys are defined, generate a complexity estimation table using T-
 ### Exit Conditions
 - Full PRD output as Markdown
 - Clearly labeled **v0 (Draft)**
+- Strategic fit sections included (if context was provided) OR noted as not assessed
 
 ---
 
