@@ -1,0 +1,128 @@
+# ===================
+# PM-tools .gitignore
+# LLM workflows and agents
+# ===================
+
+# ----- Environment & Secrets -----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+api_keys.json
+config.local.*
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env/
+.conda/
+*.conda
+
+# ----- Node.js -----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn/cache
+.pnp.*
+
+# ----- Jupyter Notebooks -----
+.ipynb_checkpoints/
+*.ipynb_meta/
+
+# ----- IDE & Editors -----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-*
+
+# ----- macOS -----
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ----- LLM & Agent Specific -----
+# Model files (too large for git)
+*.bin
+*.gguf
+*.safetensors
+*.onnx
+models/
+checkpoints/
+
+# Logs and outputs
+logs/
+*.log
+outputs/
+results/
+runs/
+
+# Cache directories
+.cache/
+.langchain/
+.llamaindex/
+__llm_cache__/
+
+# Vector stores / embeddings (regenerate locally)
+*.faiss
+*.pkl
+chroma_db/
+qdrant_storage/
+vector_store/
+
+# Temporary and scratch files
+tmp/
+temp/
+scratch/
+drafts/
+
+# ----- Data -----
+# Keep data out of git (use separate data management)
+data/
+!data/.gitkeep
+*.csv
+*.parquet
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!*.config.json
+
+# ----- Testing -----
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
