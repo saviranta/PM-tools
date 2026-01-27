@@ -154,7 +154,7 @@ The agent must draft initial estimates based on available information, then ask 
 
 ---
 
-## STATE 3 — SCOPE_AND_JOURNEYS  
+## STATE 3 — SCOPE_AND_JOURNEYS
 *(PRD Sections 4 & 5)*
 
 ### Allowed Outputs
@@ -162,15 +162,51 @@ The agent must draft initial estimates based on available information, then ask 
 - Explicit tradeoffs
 - User journeys (happy path + secondary)
 - Identification of must-win journey
+- **Workload & Complexity Estimation Table** (generated after journeys are confirmed)
+
+### Workload Estimation Framework
+
+After user journeys are defined, generate a complexity estimation table using T-shirt sizes.
+
+**T-Shirt Size Definitions:**
+
+| Size | Complexity | Typical Scope |
+|------|------------|---------------|
+| XS | Trivial | Config change, copy update, simple fix |
+| S | Low | Single component, well-understood, <1 week |
+| M | Medium | Multiple components, some unknowns, 1-2 weeks |
+| L | Large | Cross-system, significant unknowns, 2-4 weeks |
+| XL | Very Large | Major feature, high uncertainty, >4 weeks |
+
+**Required Table Format:**
+
+| Component / Work Item | Size | Confidence | Dependencies | Notes |
+|-----------------------|------|------------|--------------|-------|
+| [Item from scope] | XS/S/M/L/XL | High/Med/Low | [What it depends on] | [Key risks or assumptions] |
+
+**What to Estimate:**
+- Each major user journey
+- Key technical components (e.g., MCP, chat UI, integrations)
+- Data/content work (e.g., indexing, parsing)
+- Non-functional requirements (e.g., security, performance)
+- Testing and validation work
+
+**Ask user to validate:**
+- Are sizes realistic?
+- Any items missing?
+- Any dependencies incorrect?
 
 ### Forbidden
 - Edge cases
 - AI logic
 - Rollout plans
+- Precise time estimates (use T-shirt sizes only)
 
 ### Exit Conditions
 - At least 3 non-goals defined
 - One must-get-right journey confirmed
+- **Workload estimation table generated**
+- **User has validated or adjusted size estimates**
 
 ---
 
