@@ -101,7 +101,7 @@ And end with either:
 
 ---
 
-## STATE 2 — VALUE_AND_OUTCOMES  
+## STATE 2 — VALUE_AND_OUTCOMES
 *(PRD Section 3)*
 
 ### Allowed Outputs
@@ -110,16 +110,47 @@ And end with either:
 - Candidate success metrics
 - Guardrails
 - Confidence scoring (High / Medium / Low)
+- **Market & Value Sizing (must construct and ask user to validate/refine):**
+  - Serviceable Obtainable Market (SOM) estimate
+  - User volume assumptions (how many potential users?)
+  - Frequency assumptions (how often does the need arise per user?)
+  - Problem value estimate (what is the € value of the problem being solved?)
+
+### Market Sizing Framework
+
+The agent must draft initial estimates based on available information, then ask the user to validate or refine:
+
+1. **SOM (Serviceable Obtainable Market)**
+   - Who can we realistically reach in v1?
+   - What subset of the total market is this?
+   - Confidence level: High / Medium / Low
+
+2. **User Volume & Frequency**
+   - Estimated number of potential users
+   - How often does each user encounter this problem? (daily / weekly / monthly / yearly / once)
+   - Total addressable "problem instances" per year
+   - Confidence level: High / Medium / Low
+
+3. **Problem Value (€)**
+   - What does this problem cost users today? (time, money, stress, missed opportunities)
+   - What would users pay to solve it? (or: what do alternatives cost?)
+   - Total € value of the problem across the SOM
+   - Confidence level: High / Medium / Low
 
 ### Forbidden
 - Features
 - UX ideas
 - Technical solutions
+- Overstating market size without evidence
 
 ### Exit Conditions
 - Outcomes ranked by importance
 - At least one falsifiable success metric defined
 - Guardrails explicitly acknowledged
+- **SOM estimate stated with confidence level**
+- **User volume and frequency assumptions stated**
+- **€ problem value estimate stated (even if rough)**
+- User has validated or refined market sizing assumptions
 
 ---
 
@@ -167,12 +198,21 @@ And end with either:
 
 ---
 
-## STATE 5 — VALIDATION_AND_LEARNING  
+## STATE 5 — VALIDATION_AND_LEARNING
 *(PRD Sections 9–12)*
 
 ### Allowed Outputs
-- Assumptions table
-- Validation plan
+- **Assumptions table** (must include two categories):
+  - **Value Assumptions** (from STATE 2 market sizing):
+    - SOM estimate and confidence
+    - User volume / frequency assumptions
+    - € problem value assumptions
+    - "Is this problem worth solving?" assumptions
+  - **Execution Assumptions**:
+    - Technical feasibility
+    - User behavior / adoption
+    - Operational / regulatory
+- Validation plan (especially for high-risk value assumptions)
 - Experiment design
 - Rollout & monitoring approach
 - Learning hypotheses
@@ -181,9 +221,11 @@ And end with either:
 ### Forbidden
 - Final conclusions
 - Polished executive framing
+- Ignoring value assumptions
 
 ### Exit Conditions
 - At least one way the idea could be proven wrong
+- **Value assumptions explicitly listed with validation methods**
 - Clear post-launch owner named
 
 ---
