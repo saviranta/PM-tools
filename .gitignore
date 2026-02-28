@@ -1,18 +1,91 @@
 # ===================
 # PM-tools .gitignore
-# LLM workflows and agents
+# LLM workflows and agents for product management
 # ===================
 
-# ----- Environment & Secrets -----
+# ----- Credentials & Secrets -----
 .env
 .env.*
 !.env.example
+*.env
 *.pem
 *.key
+*.p12
+*.pfx
+*.crt
+*.cer
 secrets/
 credentials/
 api_keys.json
+*api_key*
+*apikey*
+*access_token*
+*secret_key*
+service_account*.json
+*_credentials.json
+*_secret*.json
+auth_token*
+token.json
+oauth*.json
 config.local.*
+.netrc
+.htpasswd
+mcp-auth*
+mcp-needs-auth*
+.openai
+.anthropic
+
+# ----- Personal & Persona Data -----
+# CV and career assets
+assets/work_experience.*
+assets/capabilities*
+assets/accomplishments*
+assets/motivators.*
+assets/profiles.*
+assets/personality*
+assets/writing_style.*
+assets/education.*
+assets/languages.*
+assets/coverletter_phrases.*
+assets/qualities*
+personal/
+persona/
+*_personal.*
+# Application outputs (contain personal narrative)
+output/
+outputs/
+applications/
+# Personal documents
+*.pdf
+!docs/**/*.pdf
+# Personal images and photos
+*.jpg
+*.jpeg
+*.png
+*.gif
+!docs/**/*.png
+!docs/**/*.jpg
+linkedin_*.md
+jobad.*
+
+# ----- Collected & Proprietary Data -----
+*.db
+*.sqlite
+*.sqlite3
+data/raw/
+data/collected/
+data/scraped/
+data/listings/
+data/personal/
+*.parquet
+*.feather
+*.pkl
+*.pickle
+db_config*
+database.yml
+database.yaml
+*_dump.sql
+*.backup
 
 # ----- Python -----
 __pycache__/
@@ -113,7 +186,6 @@ drafts/
 data/
 !data/.gitkeep
 *.csv
-*.parquet
 *.json
 !package.json
 !package-lock.json
