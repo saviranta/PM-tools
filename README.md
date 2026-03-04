@@ -4,18 +4,20 @@ Reusable LLM workflows and agent patterns for product management. Each tool is s
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| [`evals/`](evals/) | Evaluation framework for LLM outputs: golden set rubric, trace schema, red-team scenarios, calibration tracker, automated checks, and Claude Code eval skills |
-| [`workflows/single-agent-prd/`](workflows/) | State machine for agentic PRD generation — states, transitions, review gates |
-| [`prompts/prd-from-idea/`](prompts/) | Prompt that turns a raw product idea into a structured PRD |
-| [`templates/prd-template/`](templates/) | Skeleton PRD document with section guidance |
+| Tool | Description | Author | License |
+|------|-------------|--------|---------|
+| [`evals/`](evals/) | Evaluation framework: golden set rubric, trace schema, red-team scenarios, calibration tracker, automated checks | Lauri Saviranta | MIT |
+| [`evals/skills/`](evals/skills/) | Claude Code eval skills — audit, error analysis, synthetic data generation, LLM-as-Judge, RAG evaluation, annotation UI | [Hamel Husain](https://github.com/hamelsmu) | MIT |
+| [`workflows/`](workflows/) | State machine for agentic PRD generation — states, transitions, review gates | Lauri Saviranta | MIT |
+| [`prompts/`](prompts/) | Standalone prompt templates (e.g. PRD from idea) | Lauri Saviranta | MIT |
+| [`templates/`](templates/) | Document skeletons with section guidance | Lauri Saviranta | MIT |
 
 ## Structure
 
 ```
 pm-tools/
-├── evals/               # LLM output evaluation framework + eval skills
+├── evals/               # LLM output evaluation framework
+│   └── skills/          # Claude Code eval skills (hamelsmu/evals-skills)
 ├── prompts/             # Standalone prompt templates
 ├── templates/           # Document skeletons
 ├── workflows/           # Multi-step agent workflows and state machines
@@ -33,9 +35,14 @@ Each tool folder contains a `README.md` with:
 
 Tools are designed to work with Claude (via Claude Code or the API) but the patterns are model-agnostic where noted.
 
-## Third-Party Attributions
+## Credits
 
-The `evals/skills/` folder contains Claude Code eval skills copied from [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) by Hamel Husain, used under the MIT License. See [`evals/skills/LICENSE`](evals/skills/LICENSE).
+| Contributor | Contribution | Link |
+|-------------|-------------|------|
+| Lauri Saviranta | Author — PM-tools workflows, evals framework, prompts and templates | [github.com/saviranta](https://github.com/saviranta) |
+| Hamel Husain | Eval skills for Claude Code (`evals/skills/`) | [github.com/hamelsmu](https://github.com/hamelsmu) · [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) |
+
+Third-party content is used under its original license. See [`LICENSE`](LICENSE) for full license texts.
 
 ## Related
 
