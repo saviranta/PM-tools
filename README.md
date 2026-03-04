@@ -6,7 +6,7 @@ Reusable LLM workflows and agent patterns for product management. Each tool is s
 
 | Tool | Description |
 |------|-------------|
-| [`evals/`](evals/) | Evaluation framework for LLM outputs: golden set rubric, trace schema, red-team scenarios, calibration tracker, automated checks |
+| [`evals/`](evals/) | Evaluation framework for LLM outputs: golden set rubric, trace schema, red-team scenarios, calibration tracker, automated checks, and Claude Code eval skills |
 | [`workflows/single-agent-prd/`](workflows/) | State machine for agentic PRD generation — states, transitions, review gates |
 | [`prompts/prd-from-idea/`](prompts/) | Prompt that turns a raw product idea into a structured PRD |
 | [`templates/prd-template/`](templates/) | Skeleton PRD document with section guidance |
@@ -15,7 +15,7 @@ Reusable LLM workflows and agent patterns for product management. Each tool is s
 
 ```
 pm-tools/
-├── evals/               # LLM output evaluation framework
+├── evals/               # LLM output evaluation framework + eval skills
 ├── prompts/             # Standalone prompt templates
 ├── templates/           # Document skeletons
 ├── workflows/           # Multi-step agent workflows and state machines
@@ -32,6 +32,10 @@ Each tool folder contains a `README.md` with:
 - How to adapt it to your context
 
 Tools are designed to work with Claude (via Claude Code or the API) but the patterns are model-agnostic where noted.
+
+## Third-Party Attributions
+
+The `evals/skills/` folder contains Claude Code eval skills copied from [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) by Hamel Husain, used under the MIT License. See [`evals/skills/LICENSE`](evals/skills/LICENSE).
 
 ## Related
 
