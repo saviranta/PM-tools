@@ -53,14 +53,13 @@ Reusable LLM workflows and agent patterns for product management. Each tool is s
 | Tool | Description | Author | License |
 |------|-------------|--------|---------|
 | [`evals/`](evals/) | Evaluation framework: golden set rubric, trace schema, red-team scenarios, calibration tracker, automated checks | Lauri Saviranta | MIT |
-| [`evals/skills/`](evals/skills/) | Claude Code eval skills — audit, error analysis, synthetic data generation, LLM-as-Judge, RAG evaluation, annotation UI | [Hamel Husain](https://github.com/hamelsmu) | MIT |
+| [`evals/eval-audit/`](evals/eval-audit/) etc. | Claude Code eval skills — audit, error analysis, synthetic data generation, LLM-as-Judge, RAG evaluation, annotation UI | [Hamel Husain](https://github.com/hamelsmu) | MIT |
 
 ## Structure
 
 \`\`\`
 pm-tools/
-├── evals/               # LLM output evaluation framework
-│   └── skills/          # Claude Code eval skills (hamelsmu/evals-skills)
+├── evals/               # LLM output evaluation framework + eval skills (hamelsmu/evals-skills)
 ├── prompts/             # Standalone prompt templates
 ├── templates/           # Document skeletons
 ├── workflows/           # Multi-step agent workflows and state machines
@@ -84,7 +83,7 @@ Tools are designed to work with Claude (via Claude Code or the API) but the patt
 |-------------|-------------|------|
 | Lauri Saviranta | Author — PM-tools evals framework, PRD workflows, prompts and templates | [github.com/saviranta](https://github.com/saviranta) |
 | assimovt | Discovery, Strategy, Prioritization, PRD Writing, and Launch & Measure skills | [github.com/assimovt](https://github.com/assimovt) · [assimovt/productskills](https://github.com/assimovt/productskills) |
-| Hamel Husain | Eval skills for Claude Code (\`evals/skills/\`) | [github.com/hamelsmu](https://github.com/hamelsmu) · [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) |
+| Hamel Husain | Eval skills for Claude Code (\`evals/eval-audit/\` etc.) | [github.com/hamelsmu](https://github.com/hamelsmu) · [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) |
 
 Third-party content is used under its original license. See [\`LICENSE\`](LICENSE) and [\`LICENSE-productskills\`](LICENSE-productskills) for full license texts.
 

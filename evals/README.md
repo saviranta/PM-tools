@@ -12,7 +12,7 @@ Evaluation resources for PM-tools workflows.
 | `user_feedback_template.md` | Post-session survey questions |
 | `calibration_tracker.md` | Template for tracking estimate accuracy |
 | `red_team_scenarios.md` | Adversarial test cases |
-| `skills/` | Claude Code eval skills (see below) |
+| `eval-audit/` `error-analysis/` etc. | Claude Code eval skills (see below) |
 
 ## Quick Start
 
@@ -24,7 +24,7 @@ Evaluation resources for PM-tools workflows.
 
 ## Eval Skills (Claude Code)
 
-The `skills/` folder contains Claude Code skills adapted from [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) by Hamel Husain (MIT License). These guide an AI coding agent through common eval tasks.
+The skill folders in this directory contain Claude Code skills adapted from [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) by Hamel Husain (MIT License). These guide an AI coding agent through common eval tasks.
 
 | Skill | What it does |
 |-------|-------------|
@@ -38,4 +38,4 @@ The `skills/` folder contains Claude Code skills adapted from [hamelsmu/evals-sk
 
 ### Attribution
 
-Skills in `skills/` are copied from [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) and are used under the MIT License. See `skills/LICENSE` for the full license text. Original author: Hamel Husain.
+Skill folders are copied from [hamelsmu/evals-skills](https://github.com/hamelsmu/evals-skills) and are used under the MIT License. See `LICENSE-hamelsmu` for the full license text. Original author: Hamel Husain.
